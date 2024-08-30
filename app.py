@@ -30,4 +30,19 @@ buttons = [
 row = 1
 col = 0
 
+for button in buttons:
+    if button == '=':
+        tk.Button(root, text=button, width=5, height=2, command=calculate).grid(row=row, column=col)
+    elif button == 'C':
+        tk.Button(root, text=button, width=5, height=2, command=clear).grid(row=row, column=col)
+    else:
+        tk.Button(root, text=button, width=5, height=2, command=lambda b=button: update_label(b)).grid(row=row, column=col)
+    
+    col += 1
+    if col > 3:
+        col = 0
+        row += 1
+
+tk.Button(root, text='C', width=5, height=2, command=clear).grid(row=row, column=col)
+
 root.mainloop()
