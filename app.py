@@ -10,4 +10,24 @@ def update_label(item):
     current_text = result_label.cget("text")
     result_label.config(text=current_text + item)
 
+def calculate():
+    try:
+        result = str(eval(result_label.cget("text")))
+        result_label.config(text=result)
+    except:
+        result_label.config(text="خطأ")
+
+def clear():
+    result_label.config(text="")
+
+buttons = [
+    '7', '8', '9', '/',
+    '4', '5', '6', '*',
+    '1', '2', '3', '-',
+    '0', '.', '=', '+'
+]
+
+row = 1
+col = 0
+
 root.mainloop()
